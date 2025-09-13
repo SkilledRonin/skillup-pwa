@@ -3,6 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#121212">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="SkillUp">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    
+    <!-- Manifest Link -->
+    <link rel="manifest" href="manifest.json">
+
     <title>SkillUp - Your Learning Adventure!</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -86,13 +97,14 @@
             backdrop-filter: blur(10px);
             border-radius: 20px;
             border: 1px solid #333;
-            width: calc(50% - 60px); /* Restored for zig-zag */
-            margin-bottom: 40px; /* Added for spacing */
+            width: 100%;
+            max-width: 600px; /* Centered and stacked layout */
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 40px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .path-node:nth-child(odd) .node-content { margin-left: auto; margin-right: 60px; } /* Added for zig-zag */
-        .path-node:nth-child(even) .node-content { margin-left: 60px; margin-right: auto; } /* Added for zig-zag */
 
          .path-node .node-content:hover {
             transform: translateY(-8px) scale(1.02);
@@ -176,7 +188,7 @@
             <div class="container mx-auto">
                 <!-- Maths Node -->
                 <div class="path-node">
-                    <div class="node-content text-right" style="--glow-color: #a855f7;">
+                    <div class="node-content" style="--glow-color: #a855f7;">
                         <h3 class="text-2xl font-bold text-purple-400 mb-2">Maths Mountain</h3>
                         <p class="text-gray-400 mb-4">Climb the peak of knowledge by solving fun number puzzles.</p>
                         <button class="lesson-start-btn bg-gray-700 font-bold py-2 px-4 rounded-lg hover:bg-gray-600" data-subject="maths"><i class="fas fa-play mr-2"></i>Lesson</button>
@@ -185,7 +197,7 @@
                 </div>
                 <!-- Physics Node -->
                 <div class="path-node">
-                    <div class="node-content text-left" style="--glow-color: #38bdf8;">
+                    <div class="node-content" style="--glow-color: #38bdf8;">
                          <h3 class="text-2xl font-bold text-sky-400 mb-2">Physics Force Field</h3>
                         <p class="text-gray-400 mb-4">Uncover the laws of motion, energy, and the universe.</p>
                         <button class="lesson-start-btn bg-gray-700 font-bold py-2 px-4 rounded-lg hover:bg-gray-600" data-subject="physics"><i class="fas fa-play mr-2"></i>Lesson</button>
@@ -194,7 +206,7 @@
                 </div>
                 <!-- Chemistry Node -->
                 <div class="path-node">
-                    <div class="node-content text-right" style="--glow-color: #f97316;">
+                    <div class="node-content" style="--glow-color: #f97316;">
                          <h3 class="text-2xl font-bold text-orange-400 mb-2">Chemistry Concoctions</h3>
                         <p class="text-gray-400 mb-4">Mix elements and discover the magic of reactions.</p>
                         <button class="lesson-start-btn bg-gray-700 font-bold py-2 px-4 rounded-lg hover:bg-gray-600" data-subject="chemistry"><i class="fas fa-play mr-2"></i>Lesson</button>
@@ -203,7 +215,7 @@
                 </div>
                 <!-- Biology Node -->
                 <div class="path-node">
-                    <div class="node-content text-left" style="--glow-color: #34d399;">
+                    <div class="node-content" style="--glow-color: #34d399;">
                          <h3 class="text-2xl font-bold text-emerald-400 mb-2">Biology Biosphere</h3>
                         <p class="text-gray-400 mb-4">Explore the wonders of life, from tiny cells to giant whales.</p>
                         <button class="lesson-start-btn bg-gray-700 font-bold py-2 px-4 rounded-lg hover:bg-gray-600" data-subject="biology"><i class="fas fa-play mr-2"></i>Lesson</button>
@@ -212,7 +224,7 @@
                 </div>
                 <!-- History Node -->
                 <div class="path-node">
-                    <div class="node-content text-right" style="--glow-color: #f59e0b;">
+                    <div class="node-content" style="--glow-color: #f59e0b;">
                         <h3 class="text-2xl font-bold text-amber-400 mb-2">History Odyssey</h3>
                         <p class="text-gray-400 mb-4">Travel back in time to meet kings, queens, and explorers.</p>
                         <button class="lesson-start-btn bg-gray-700 font-bold py-2 px-4 rounded-lg hover:bg-gray-600" data-subject="history"><i class="fas fa-play mr-2"></i>Lesson</button>
@@ -221,7 +233,7 @@
                 </div>
                 <!-- Geography Node -->
                 <div class="path-node">
-                    <div class="node-content text-left" style="--glow-color: #3b82f6;">
+                    <div class="node-content" style="--glow-color: #3b82f6;">
                         <h3 class="text-2xl font-bold text-blue-400 mb-2">Geography Quest</h3>
                         <p class="text-gray-400 mb-4">Explore jungles, deserts, and oceans to become a map master.</p>
                         <button class="lesson-start-btn bg-gray-700 font-bold py-2 px-4 rounded-lg hover:bg-gray-600" data-subject="geography"><i class="fas fa-play mr-2"></i>Lesson</button>
@@ -230,7 +242,7 @@
                 </div>
                 <!-- English Node -->
                 <div class="path-node">
-                    <div class="node-content text-right" style="--glow-color: #ec4899;">
+                    <div class="node-content" style="--glow-color: #ec4899;">
                         <h3 class="text-2xl font-bold text-pink-400 mb-2">English Eloquence</h3>
                         <p class="text-gray-400 mb-4">Master the art of language, from poetry to prose.</p>
                         <button class="lesson-start-btn bg-gray-700 font-bold py-2 px-4 rounded-lg hover:bg-gray-600" data-subject="english"><i class="fas fa-play mr-2"></i>Lesson</button>
@@ -715,11 +727,22 @@
         quizModal.addEventListener('click', (e) => e.target === quizModal && closeModal(quizModal));
         puzzleModal.addEventListener('click', (e) => e.target === puzzleModal && closeModal(puzzleModal));
         challengeModal.addEventListener('click', (e) => e.target === challengeModal && closeModal(challengeModal));
+
+        // --- PWA Service Worker Registration ---
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
     </script>
 </body>
 </html>
-
-
 
 
 
