@@ -147,20 +147,42 @@
 </head>
 <body class="text-gray-300">
 
+    <!-- Sidebar -->
+    <div id="sidebar" class="fixed top-0 left-0 w-64 h-full bg-[#1e1e1e] shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+        <div class="p-4 flex justify-between items-center border-b border-gray-700">
+            <h2 class="text-xl font-bold text-white">Menu</h2>
+            <button id="close-sidebar-btn" class="text-gray-400 hover:text-white text-2xl">&times;</button>
+        </div>
+        <nav class="mt-4">
+            <a href="#" class="sidebar-link block py-3 px-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white transition-colors"><i class="fas fa-sign-in-alt w-6 mr-2"></i>Log In</a>
+            <a href="#learning-path" class="sidebar-link block py-3 px-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white transition-colors"><i class="fas fa-road w-6 mr-2"></i>Path</a>
+            <a href="#leaderboard" class="sidebar-link block py-3 px-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white transition-colors"><i class="fas fa-trophy w-6 mr-2"></i>Leaderboard</a>
+            <a href="https://ncert.nic.in/textbook.php" target="_blank" rel="noopener noreferrer" class="sidebar-link block py-3 px-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white transition-colors"><i class="fas fa-book w-6 mr-2"></i>Resources</a>
+        </nav>
+    </div>
+
+    <!-- Sidebar Overlay -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-60 z-40 hidden md:hidden"></div>
+
     <!-- Header -->
-    <header class="bg-black/50 backdrop-blur-lg shadow-lg shadow-black/20 sticky top-0 z-50">
+    <header class="bg-black/50 backdrop-blur-lg shadow-lg shadow-black/20 sticky top-0 z-30">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-2xl font-extrabold text-white tracking-wider">
                 <i class="fas fa-rocket mr-2 text-cyan-400"></i>SkillUp
             </a>
+            <!-- Desktop Nav -->
             <div class="hidden md:flex items-center space-x-8">
                 <a href="#learning-path" class="font-semibold hover:text-cyan-400 transition-colors">Path</a>
                 <a href="#leaderboard" class="font-semibold hover:text-cyan-400 transition-colors">Leaderboard</a>
                 <a href="https://ncert.nic.in/textbook.php" target="_blank" rel="noopener noreferrer" class="font-semibold hover:text-cyan-400 transition-colors">Resources</a>
             </div>
-            <a href="#" class="btn-primary font-bold px-6 py-2 rounded-lg">
-                Get Started
+            <a href="#" class="hidden md:block btn-primary font-bold px-6 py-2 rounded-lg">
+                Log In
             </a>
+            <!-- Mobile Hamburger Button -->
+            <button id="open-sidebar-btn" class="text-white text-3xl md:hidden">
+                <i class="fas fa-bars"></i>
+            </button>
         </nav>
     </header>
 
@@ -337,7 +359,7 @@
     </footer>
 
     <!-- Video Lesson Modal -->
-    <div id="video-modal" class="modal fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 opacity-0 pointer-events-none z-50">
+    <div id="video-modal" class="modal fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 opacity-0 pointer-events-none z-60">
         <div class="dark-modal-content rounded-lg shadow-2xl w-full max-w-3xl transform transition-transform duration-300 scale-95">
             <div class="p-4 border-b border-gray-700 flex justify-between items-center">
                 <h3 id="video-title" class="text-xl font-bold text-white">Watch Lesson</h3>
@@ -350,7 +372,7 @@
     </div>
     
     <!-- Puzzle Modal -->
-    <div id="puzzle-modal" class="modal fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 opacity-0 pointer-events-none z-50">
+    <div id="puzzle-modal" class="modal fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 opacity-0 pointer-events-none z-60">
          <div class="dark-modal-content rounded-lg shadow-2xl w-full max-w-md transform transition-transform duration-300 scale-95">
             <div class="p-5 border-b border-gray-700 flex justify-between items-center bg-gray-800/50 rounded-t-lg">
                 <h3 id="puzzle-title" class="text-xl font-bold text-white">Puzzle Time!</h3>
@@ -368,7 +390,7 @@
     </div>
 
     <!-- Weekly Challenge Modal -->
-    <div id="challenge-modal" class="modal fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 opacity-0 pointer-events-none z-50">
+    <div id="challenge-modal" class="modal fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 opacity-0 pointer-events-none z-60">
          <div class="dark-modal-content rounded-lg shadow-2xl w-full max-w-lg transform transition-transform duration-300 scale-95">
             <div class="p-5 border-b border-gray-700 flex justify-between items-center bg-gray-800/50 rounded-t-lg">
                 <h3 id="challenge-title" class="text-xl font-bold text-white">Weekly Challenge</h3>
@@ -386,7 +408,7 @@
     </div>
 
     <!-- Quiz Modal -->
-    <div id="quiz-modal" class="modal fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 opacity-0 pointer-events-none z-50">
+    <div id="quiz-modal" class="modal fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 opacity-0 pointer-events-none z-60">
         <div class="dark-modal-content rounded-lg shadow-2xl w-full max-w-lg transform transition-transform duration-300 scale-95">
             <div class="p-5 border-b border-gray-700 flex justify-between items-center bg-gray-800/50 rounded-t-lg">
                 <h3 id="quiz-title" class="text-xl font-bold text-white">Quiz Time!</h3>
@@ -412,6 +434,11 @@
 
     <script>
         // --- DOM Elements ---
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+        const openSidebarBtn = document.getElementById('open-sidebar-btn');
+        const closeSidebarBtn = document.getElementById('close-sidebar-btn');
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
         const quizModal = document.getElementById('quiz-modal');
         const videoModal = document.getElementById('video-modal');
         const puzzleModal = document.getElementById('puzzle-modal');
@@ -551,6 +578,17 @@
                 [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
             }
             return array;
+        }
+
+        // --- Sidebar Functions ---
+        function openSidebar() {
+            sidebar.classList.remove('-translate-x-full');
+            sidebarOverlay.classList.remove('hidden');
+        }
+
+        function closeSidebar() {
+            sidebar.classList.add('-translate-x-full');
+            sidebarOverlay.classList.add('hidden');
         }
 
         // --- Modal Functions ---
@@ -727,6 +765,14 @@
         quizModal.addEventListener('click', (e) => e.target === quizModal && closeModal(quizModal));
         puzzleModal.addEventListener('click', (e) => e.target === puzzleModal && closeModal(puzzleModal));
         challengeModal.addEventListener('click', (e) => e.target === challengeModal && closeModal(challengeModal));
+
+        // --- Sidebar Event Listeners ---
+        openSidebarBtn.addEventListener('click', openSidebar);
+        closeSidebarBtn.addEventListener('click', closeSidebar);
+        sidebarOverlay.addEventListener('click', closeSidebar);
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', closeSidebar);
+        });
 
         // --- PWA Service Worker Registration ---
         if ('serviceWorker' in navigator) {
